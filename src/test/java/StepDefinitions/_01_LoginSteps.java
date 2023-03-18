@@ -13,8 +13,10 @@ public class _01_LoginSteps {
     DialogContent dialogContent = new DialogContent();
     @Given("Navigate to Campus")
     public void navigate_to_campus() {
+        BasicDriver.getDriver().manage().deleteAllCookies();
         BasicDriver.getDriver().get("https://test.mersys.io/");
         BasicDriver.getDriver().manage().window().maximize();
+
     }
 
     @When("Enter username and password")
@@ -35,6 +37,6 @@ public class _01_LoginSteps {
     public void user_should_login_successfully() {
         dialogContent.waitUntilVisible(dialogContent.getDashBoardHeader());
         Assert.assertTrue(dialogContent.getDashBoardHeader().isDisplayed());
-        dialogContent.clickMethod(dialogContent.getAcceptCookies());
+//        dialogContent.clickMethod(dialogContent.getAcceptCookies());
     }
 }
