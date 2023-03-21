@@ -1,5 +1,6 @@
 package Runners;
 
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
@@ -8,7 +9,8 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"StepDefinitions"},
         plugin = "html:target/site/cucumber-pretty.html"
 )
-public class _06_RunnerWithPlugin {
+public class _06_RunnerWithPlugin extends AbstractTestNGCucumberTests {
 
     //https://cucumber.io/docs/cucumber/reporting/?sbsearch=reports&lang=java
+    //https://www.programsbuzz.com/article/cucumber-testng-generate-extent-report-using-extent-adapter-grasshopper
 }
