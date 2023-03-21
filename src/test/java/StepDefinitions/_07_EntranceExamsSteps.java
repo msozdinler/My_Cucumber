@@ -36,6 +36,7 @@ public class _07_EntranceExamsSteps {
     public void createADescription(DataTable dataTable) {
         List<String> dataList = dataTable.asList(String.class);
         dc.clickMethod(dc.getDescription());
+        dc.waitUntilVisible(dc.getDescriptionAndNoteIFrame());
         BasicDriver.getDriver().switchTo().frame(dc.getDescriptionAndNoteIFrame());
         dc.sendKeysMethod(dc.getDescriptionAndNoteInput(), dataList.get(0));
         BasicDriver.getDriver().switchTo().defaultContent();
