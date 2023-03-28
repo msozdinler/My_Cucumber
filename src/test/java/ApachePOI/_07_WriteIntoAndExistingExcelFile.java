@@ -10,6 +10,8 @@ public class _07_WriteIntoAndExistingExcelFile {
         Sheet sheet;
         Workbook workbook;
         FileInputStream inputStream;
+
+
         try {
             inputStream = new FileInputStream(path);
             workbook = WorkbookFactory.create(inputStream);
@@ -18,13 +20,13 @@ public class _07_WriteIntoAndExistingExcelFile {
             throw new RuntimeException(e);
         }
 
-        Row row = sheet.getRow(0);
-        Cell cell = row.createCell(0);
-        cell.setCellValue("Hello World!");
+        // We made changes in the memory not in the file
+        Row row = sheet.createRow(0); // created a new row
+        Cell cell = row.createCell(0); // created a new cell
+        cell.setCellValue("Hello World!"); // typed the value in the cell
 
         for (int i = 1; i < 10; i++) {
             row.createCell(i).setCellValue(i);
-
         }
 
         FileOutputStream outputStream;
@@ -37,7 +39,5 @@ public class _07_WriteIntoAndExistingExcelFile {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
